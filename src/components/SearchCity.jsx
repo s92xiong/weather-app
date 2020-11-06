@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Input = (props) => {
+const SearchCity = (props) => {
   return (
     <form onSubmit={props.onSubmit}>
       <input 
         type="text"
-        placeholder="Enter a city..."
+        placeholder="Search city..."
         onChange={props.onChange}
         className={props.className}
       />
@@ -13,4 +13,4 @@ const Input = (props) => {
   );
 }; 
 
-export default Input;
+export default SearchCity;

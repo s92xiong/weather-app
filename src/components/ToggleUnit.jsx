@@ -1,9 +1,17 @@
 import React from 'react';
+import '../styles/toggleButton.css';
 
-const ToggleUnit = (props) => (
-  <div>
-    <button onClick={props.onClick}>Toggle Unit</button>
-  </div>
-);
+const ToggleUnit = (props) => {
+  return (
+    <div className="toggle-unit">
+      °C
+      <label className="switch">
+        <input type="checkbox" onClick={props.onClick} />
+        <span className="slider round"></span>
+      </label>
+      °F
+    </div>
+  );
+};
 
 export default ToggleUnit;
