@@ -5,13 +5,14 @@ import fetchWeatherData from './components/fetchWeatherData';
 import Navbar from './components/Navbar';
 import WeatherCardPrimary from './components/WeatherCardPrimary';
 import WeatherCardSecondary from './components/WeatherCardSecondary';
+import SearchFailed from './components/SearchFailed';
 
 function App() {
   const [userHasNotYetSearched, setUserHasNotYetSearched] = useState(true);
   const [searchFailed, setSearchFailed] = useState(false);
+  const [metricUnit, setMetricUnit] = useState(true);
   const [cityName, setCityName] = useState("");
   const [currentWeather, setCurrentWeather] = useState({});
-  const [metricUnit, setMetricUnit] = useState(true);
   const [forecast, setForecast] = useState({});
 
   const inputFieldChange = (e) => setCityName(e.target.value);
@@ -30,16 +31,9 @@ function App() {
   if (userHasNotYetSearched) {
     return (
       <div className="App">
-        <Navbar 
-          onSubmit={handleSubmit}
-          onChange={inputFieldChange}
-          onClick={unitChange}
+        <Navbar onChange={inputFieldChange} onClick={unitChange} onSubmit={handleSubmit}
         />
-        <div className="search-failed">
-          <h1>Search city or location</h1>
-          <br/>
-          <p>To specify a country, use the two-letter abbreviation (Alpha-2 code) after a comma. e.g. Washington, US</p>
-        </div>
+        <SearchFailed header="Search city or location" />
       </div>
     );
   }
@@ -48,27 +42,15 @@ function App() {
   if (searchFailed) {
     return (
       <div className="App">
-        <Navbar 
-          onSubmit={handleSubmit}
-          onChange={inputFieldChange}
-          onClick={unitChange}
-        />
-        <div className="search-failed">
-          <h1>Location not available</h1>
-          <br/>
-          <p>To specify a country, use the two-letter abbreviation (Alpha-2 code) after a comma. e.g. Washington, US</p>
-        </div>
+        <Navbar onChange={inputFieldChange} onClick={unitChange} onSubmit={handleSubmit} />
+        <SearchFailed header="Location not available" />
       </div>
     );
   }
   
   return (
     <div className="App">
-      <Navbar 
-        onSubmit={handleSubmit}
-        onChange={inputFieldChange}
-        onClick={unitChange}
-      />
+      <Navbar onChange={inputFieldChange} onClick={unitChange} onSubmit={handleSubmit} />
       <div className="container">
         {
           (typeof currentWeather.main !== "undefined") ?
@@ -82,8 +64,7 @@ function App() {
             timezone={currentWeather.timezone}
           />
           :
-          <div className="fake-container">
-          </div>
+          <div className="empty-container"></div>
         }
         {
           (typeof forecast.daily !== "undefined") ?

@@ -11,7 +11,9 @@ const fetchWeatherData = async (setCurrentWeather, setForecast, cityName, setSea
   try {
     // Remove searchFailed UI, render normal UI
     setSearchFailed(false);
+
     setUserHasNotYetSearched(false);
+
     // Fetch data from api, convert it to an object, update weather object state
     const firstCall = await fetch(`${api.currentWeatherData}${cityName}&appid=${api.key}`, {mode:"cors"});
     const todaysWeather = await firstCall.json();
@@ -22,7 +24,7 @@ const fetchWeatherData = async (setCurrentWeather, setForecast, cityName, setSea
     const longitude =  todaysWeather.coord.lon;
     const latitude = todaysWeather.coord.lat;
 
-    // Fetch data forecast
+    // Fetch data for 7 day forecast
     const secondCall = await fetch(`${api.oneCall}lat=${latitude}&lon=${longitude}${api.exclude}&appid=${api.key}`);
     const forecastData = await secondCall.json();
     setForecast(forecastData);
@@ -30,7 +32,6 @@ const fetchWeatherData = async (setCurrentWeather, setForecast, cityName, setSea
 
   } catch (error) {
     setSearchFailed(true);
-    console.log("JOOOOOOOJOOOOOOOO");
   }
 };
 

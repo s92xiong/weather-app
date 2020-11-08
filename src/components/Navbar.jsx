@@ -7,7 +7,6 @@ import image from '../images/open-weather.png';
 const Navbar = (props) => {
   return (
     <nav>
-      {/* <h1>Weather App</h1> */}
       <a href="https://openweathermap.org/">
         <img src={image} alt=""/>
       </a>

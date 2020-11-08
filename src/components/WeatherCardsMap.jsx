@@ -4,9 +4,11 @@ import getWeatherIcon from './getWeatherIcon';
 import calcTemp from './calcTemp';
 
 const WeatherCardsMap = ({ array, isUnitMetric, timezone }) => {
+
   const getDayOfWeek = (index) => {
     const tomorrow = new Date(getTimeByOffset(timezone));
     tomorrow.setDate(tomorrow.getDate() + index + 1);
+    // Get day of the week in the format "Sun" or "Mon" or "Tue", etc.
     return tomorrow.toString().split(' ')[0];
   };
 
