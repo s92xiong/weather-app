@@ -2,7 +2,7 @@
 
 const api = {
   key: "2f32bb4535de7ea7d76e39d2f2cbfbcc",
-  currentWeatherData: "http://api.openweathermap.org/data/2.5/weather?q=",
+  currentWeatherData: "https://api.openweathermap.org/data/2.5/weather?q=",
   oneCall: "https://api.openweathermap.org/data/2.5/onecall?",
   exclude: "&exclude=current,minutely,hourly,alert"
 }
