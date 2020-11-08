@@ -24,16 +24,16 @@ const WeatherCardsMap = ({ array, isUnitMetric, timezone }) => {
           <h3>{getDayOfWeek(index)}</h3>
           <p className="month-day">{getDateMMDD(index)}</p>
         </div>
-        <div className="grid-row">
+        <div className="grid-row grid-row-odd">
           <img className="small-weather-icon" src={getWeatherIcon(element.weather[0].main)} alt=""/>
         </div>
-        <div className="grid-row grid-row-odd">
+        <div className="grid-row">
           <p className="small-temperature">{calcTemp(isUnitMetric, element.temp.day)}°</p>
         </div>
-        <div className="grid-row">
+        <div className="grid-row grid-row-odd">
           <p className="small-feels_like-temperature">{calcTemp(isUnitMetric, element.feels_like.day)}°</p>
         </div>
-        <div className="grid-row grid-row-odd">
+        <div className="grid-row">
           <p className="small-feels_like-temperature">
             <sup>/</sup>{calcTemp(isUnitMetric, element.feels_like.night)}°
           </p>
