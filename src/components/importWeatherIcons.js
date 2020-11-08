@@ -6,6 +6,7 @@ import img4 from '../images/4-Thunderstorm.png';
 import img5 from '../images/5-Snow.png';
 import img6 from '../images/6-Mist.png';
 import img7 from '../images/7-Fog.png';
+import img8 from '../images/8-Haze.png';
 
 const weatherIcons = [
   img0,
@@ -16,6 +17,7 @@ const weatherIcons = [
   img5,
   img6,
   img7,
+  img8,
 ];
 
 export default weatherIcons;

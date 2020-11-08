@@ -9,4 +9,14 @@ function kelvinToFahrenheit(kelvin) {
   return fahrenheit;
 }
 
-export {kelvinToCelsius, kelvinToFahrenheit};
+function calcTemp(bool, kelvin) {
+  let value;
+  if (bool) {
+    value = kelvinToCelsius(kelvin);
+  } else {
+    value = kelvinToFahrenheit(kelvin);
+  }
+  return value;
+}
+
+export default calcTemp;

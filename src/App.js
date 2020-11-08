@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import './styles/App.css';
-import WeatherCardPrimary from './components/WeatherCardPrimary';
+import './styles/AppMobile.css';
 import fetchWeatherData from './components/fetchWeatherData';
 import Navbar from './components/Navbar';
+import WeatherCardPrimary from './components/WeatherCardPrimary';
+import WeatherCardSecondary from './components/WeatherCardSecondary';
 
 function App() {
   const [cityName, setCityName] = useState("");
   const [currentWeather, setCurrentWeather] = useState({});
-  const [forecast, setForecast] = useState({});
   const [metricUnit, setMetricUnit] = useState(true);
+  const [forecast, setForecast] = useState({});
 
   const inputFieldChange = (e) => setCityName(e.target.value);
   
@@ -29,25 +31,34 @@ function App() {
         onChange={inputFieldChange}
         onClick={unitChange}
       />
-      {
-        (typeof currentWeather.main != "undefined") ?
-        <div className="container">
+      <div className="container">
+        {
+          (typeof currentWeather.main !== "undefined") ?
           <WeatherCardPrimary
-              cityName={currentWeather.name}
-              country={currentWeather.sys.country}
-              isUnitMetric={metricUnit}
-              temperature={currentWeather.main.temp}
-              feelsLike={currentWeather.main.feels_like}
-              weatherStatus={currentWeather.weather[0].main}
+            cityName={currentWeather.name}
+            country={currentWeather.sys.country}
+            isUnitMetric={metricUnit}
+            temperature={currentWeather.main.temp}
+            feelsLike={currentWeather.main.feels_like}
+            weatherStatus={currentWeather.weather[0].main}
+            timezone={currentWeather.timezone}
           />
-          
-        </div>
-        :
-        <div className="main-weather-card">
-          <h1>City not available</h1>
-          <p className="something">{forecast.lat}</p>
-        </div>
-      }
+          :
+          <div className="fake-container">
+            <h1>City Unavailable</h1>
+          </div>
+        }
+        {
+          (typeof forecast.daily !== "undefined") ?
+          <WeatherCardSecondary
+            isUnitMetric={metricUnit}
+            array={forecast.daily}
+            timezone={currentWeather.timezone}
+          />
+          :
+          <div></div>
+        }
+      </div>
     </div>
   );
 }

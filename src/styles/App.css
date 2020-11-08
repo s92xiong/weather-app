@@ -6,8 +6,8 @@
 }
 
 body {
-  background-color: #ebebeb;
-  background-image: linear-gradient(#638ab9, #b4d7ee);
+  position: relative;
+  /* background-image: linear-gradient(#638ab9, #b4d7ee); */
   /* background-image: linear-gradient(#845698, #f1d2ca); */
   /* background-image: linear-gradient(#474747, #999999); */
 }
@@ -16,9 +16,8 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-image: linear-gradient(#638ab9, #b4d7ee);
+  overflow-y: auto;
 }
 
 nav {
@@ -34,10 +33,6 @@ nav {
 nav img {
   height: 50px;
 }
-
-/* nav h1 {
-  color: #ffffff;
-} */
 
 .input-city {
   background-color: #ffffff28;
@@ -68,13 +63,23 @@ nav img {
 
 /* MAIN CONTENT */
 
-.main-weather-card {
+.container {
+  max-width: 750px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PRIMARY WEATHER CARD */
+.weather-card-primary {
   color: #fefefe;
+  margin-bottom: 20px;
   padding: 20px 30px;
-  margin: 40px;
-  width: 750px;
+  width: 100%;
   height: 250px;
-  border-radius: 10px;
+  border-radius: 20px 20px 0 0;
   background-color: #00000020;
   background-color: #11307620;
   display: flex;
@@ -82,12 +87,12 @@ nav img {
   justify-content: space-between;
 }
 
-.main-weather-card-details p {
+.weather-card-primary-details p {
   font-size: 18px;
   line-height: 25px;
 }
 
-.main-weather-card-date {
+.weather-card-primary-date {
   color: #ffffffb0;
 }
 
@@ -105,4 +110,50 @@ sup {
 
 .icon-image {
   width: 240px;
+}
+
+/* SECONDARY WEATHER CARD */
+
+.weather-card-secondary {
+  color: #535353;
+  width: 100%;
+  height: 250px;
+  background-color: #11307620;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-weather-card {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  border-right: 1px #d4d7d8 solid;
+}
+
+.month-day {
+  font-size: 14px;
+}
+
+.small-weather-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.small-temperature {
+  font-size: 25px;
+}
+
+.grid-row-odd {
+  background-color: #f3f3f3;
+}
+
+.small-feels_like-temperature sup {
+  font-size: 15px;
 }

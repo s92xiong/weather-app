@@ -1,7 +1,7 @@
 import weatherIcons from './importWeatherIcons';
 
 const getWeatherIcon = (weatherIcon) => {
-  let arrayOfIcons = ["Clear", "Clouds", "Drizzle", "Rain", "Thunderstorm", "Snow", "Mist", "Fog"];
+  let arrayOfIcons = ["Clear", "Clouds", "Drizzle", "Rain", "Thunderstorm", "Snow", "Mist", "Fog", "Haze"];
   let description = weatherIcon.toString();
 
   let index;

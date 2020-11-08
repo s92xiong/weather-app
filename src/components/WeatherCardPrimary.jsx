@@ -1,9 +1,10 @@
 import React from 'react';
-import { kelvinToCelsius, kelvinToFahrenheit } from './convertTemperature';
+import calcTemp from './calcTemp';
+import getTimeByOffset from './getTimeByOffset';
 import getWeatherIcon from './getWeatherIcon';
 
-const WeatherCardPrimary = ({cityName, country, isUnitMetric, temperature, feelsLike, weatherStatus}) => {
-  const date = new Date();
+const WeatherCardPrimary = ({cityName, country, isUnitMetric, temperature, feelsLike, weatherStatus, timezone}) => {
+  const date = new Date(getTimeByOffset(timezone));
   const time = date.toLocaleDateString([], { 
     weekday: 'long', 
     hour: '2-digit', 
@@ -14,21 +15,17 @@ const WeatherCardPrimary = ({cityName, country, isUnitMetric, temperature, feels
   });
 
   return (
-    <div className="main-weather-card">
-      <div className="main-weather-card-details">
-        <h1 className="main-weather-card-location">{cityName}, {country}</h1>
-        <p className="main-weather-card-date">as of {time}</p>
+    <div className="weather-card-primary">
+      <div className="weather-card-primary-details">
+        <h1 className="weather-card-primary-location">{cityName}, {country}</h1>
+        <p className="weather-card-primary-date">as of {time}</p>
         <h1 className="temperature">
-          {(isUnitMetric) ? 
-            kelvinToCelsius(temperature) : 
-            kelvinToFahrenheit(temperature)
-          }{(isUnitMetric) ? <sup>°C</sup> : <sup>°F</sup>}
+          {calcTemp(isUnitMetric, temperature)}
+          {(isUnitMetric) ? <sup>°C</sup> : <sup>°F</sup>}
         </h1>
         <p>
-          Feels like: {(isUnitMetric) ? 
-            kelvinToCelsius(feelsLike) : 
-            kelvinToFahrenheit(feelsLike)
-          } {(isUnitMetric) ? "°C" : "°F"}
+          Feels like: {calcTemp(isUnitMetric, feelsLike)}
+          {(isUnitMetric) ? "°C" : "°F"}
         </p>
         <h2>{weatherStatus}</h2>
       </div>
