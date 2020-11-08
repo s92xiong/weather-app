@@ -5,7 +5,7 @@ const SearchCity = (props) => {
     <form onSubmit={props.onSubmit}>
       <input 
         type="text"
-        placeholder="Search city..."
+        placeholder="Search City"
         onChange={props.onChange}
         className={props.className}
       />

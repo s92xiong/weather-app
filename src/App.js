@@ -7,6 +7,8 @@ import WeatherCardPrimary from './components/WeatherCardPrimary';
 import WeatherCardSecondary from './components/WeatherCardSecondary';
 
 function App() {
+  const [userHasNotYetSearched, setUserHasNotYetSearched] = useState(true);
+  const [searchFailed, setSearchFailed] = useState(false);
   const [cityName, setCityName] = useState("");
   const [currentWeather, setCurrentWeather] = useState({});
   const [metricUnit, setMetricUnit] = useState(true);
@@ -17,12 +19,48 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const inputField = document.querySelector('.input-city');
-    if (cityName.length > 0) fetchWeatherData(setCurrentWeather, setForecast, cityName);
+    if (cityName.length > 0) fetchWeatherData(setCurrentWeather, setForecast, cityName, setSearchFailed, setUserHasNotYetSearched);
     setCityName("");
     inputField.value = "";
   };
 
   const unitChange = () => setMetricUnit(!metricUnit);
+
+  // Render UI below when page first loads
+  if (userHasNotYetSearched) {
+    return (
+      <div className="App">
+        <Navbar 
+          onSubmit={handleSubmit}
+          onChange={inputFieldChange}
+          onClick={unitChange}
+        />
+        <div className="search-failed">
+          <h1>Search city or location</h1>
+          <br/>
+          <p>To specify a country, use the two-letter abbreviation (Alpha-2 code) after a comma. e.g. Washington, US</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Render UI below if a search has failed
+  if (searchFailed) {
+    return (
+      <div className="App">
+        <Navbar 
+          onSubmit={handleSubmit}
+          onChange={inputFieldChange}
+          onClick={unitChange}
+        />
+        <div className="search-failed">
+          <h1>Location not available</h1>
+          <br/>
+          <p>To specify a country, use the two-letter abbreviation (Alpha-2 code) after a comma. e.g. Washington, US</p>
+        </div>
+      </div>
+    );
+  }
   
   return (
     <div className="App">
@@ -45,7 +83,6 @@ function App() {
           />
           :
           <div className="fake-container">
-            <h1>City Unavailable</h1>
           </div>
         }
         {
