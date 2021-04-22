@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import './styles/App.css';
-import './styles/AppMobile.css';
 import fetchWeatherData from './components/fetchWeatherData';
 import Navbar from './components/Navbar';
 import WeatherCardPrimary from './components/WeatherCardPrimary';
 import WeatherCardSecondary from './components/WeatherCardSecondary';
 import SearchFailed from './components/SearchFailed';
+import bgImages from "./components/getImages";
+import './styles/App.css';
+import './styles/AppMobile.css';
 
 function App() {
   
@@ -40,26 +41,24 @@ function App() {
   const unitChange = () => setMetricUnit(!metricUnit);
 
   const updateBg = (weatherStatus) => {
-    // eslint-disable-next-line no-unused-vars
-    let arrayOfIcons = ["Clear", "Clouds", "Drizzle", "Rain", "Thunderstorm", "Snow", "Mist", "Fog", "Haze"];
+
+    // let weatherMain = ["Clear", "Clouds", "Drizzle", "Rain", "Thunderstorm", "Snow", "Mist", "Fog", "Haze"];
 
     if (weatherStatus === "Clear") {
-      setBg("red");
+      setBg(0);
     } else if (weatherStatus === "Clouds") {
-      setBg("green");
+      setBg(1);
     } else if (weatherStatus === "Drizzle" || weatherStatus === "Rain" || weatherStatus === "Thunderstorm") {
-      setBg("blue");
+      setBg(2);
     } else if (weatherStatus === "Snow") {
-      setBg("pink");
+      setBg(3);
     } else if (weatherStatus === "Mist" || weatherStatus === "Fog" || weatherStatus === "Haze") {
-      setBg("yellow");
+      setBg(4);
     }
   };
 
   useEffect(() => {
-    if (currentWeather.weather) {
-      updateBg(currentWeather.weather[0].main);
-    }
+    if (currentWeather.weather) updateBg(currentWeather.weather[0].main);
   }, [currentWeather]);
 
   // Render UI below when page first loads
@@ -89,7 +88,7 @@ function App() {
   
   return (
     <div className="App" style={{
-      backgroundColor: `${bg}`
+      backgroundImage: `url(${bgImages[bg]})`
     }}>
       <Navbar onChange={inputFieldChange} onClick={unitChange} onSubmit={handleSubmit} />
       <div className="container">

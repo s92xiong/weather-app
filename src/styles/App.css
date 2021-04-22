@@ -8,7 +8,6 @@
 body {
   position: relative;
   background-image: linear-gradient(#638ab9, #b4d7ee);
-  /* background-image: linear-gradient(#6d6c6c, #333333); */
 }
 
 .App {
@@ -17,6 +16,8 @@ body {
   position: relative;
   overflow-y: auto;
   transition: 350ms;
+  background-position: top;
+  background-size: cover;
 }
 
 nav {
