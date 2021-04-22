@@ -7,16 +7,16 @@
 
 body {
   position: relative;
-  /* background-image: linear-gradient(#638ab9, #b4d7ee); */
+  background-image: linear-gradient(#638ab9, #b4d7ee);
+  /* background-image: linear-gradient(#6d6c6c, #333333); */
 }
 
 .App {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: linear-gradient(#638ab9, #b4d7ee);
-  background-image: linear-gradient(#845698, #f1d2ca);
   overflow-y: auto;
+  transition: 350ms;
 }
 
 nav {

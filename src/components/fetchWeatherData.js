@@ -18,7 +18,7 @@ const fetchWeatherData = async (setCurrentWeather, setForecast, cityName, setSea
     const firstCall = await fetch(`${api.currentWeatherData}${cityName}&appid=${api.key}`, {mode:"cors"});
     const todaysWeather = await firstCall.json();
     setCurrentWeather(todaysWeather);
-    console.log(todaysWeather);
+    // console.log(todaysWeather);
 
     // Obtain coordinates from todaysWeather to use it for the second API call
     const longitude =  todaysWeather.coord.lon;
@@ -28,7 +28,7 @@ const fetchWeatherData = async (setCurrentWeather, setForecast, cityName, setSea
     const secondCall = await fetch(`${api.oneCall}lat=${latitude}&lon=${longitude}${api.exclude}&appid=${api.key}`);
     const forecastData = await secondCall.json();
     setForecast(forecastData);
-    console.log(forecastData);
+    // console.log(forecastData);
 
   } catch (error) {
     setSearchFailed(true);

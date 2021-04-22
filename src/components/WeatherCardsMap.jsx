@@ -17,7 +17,8 @@ const WeatherCardsMap = ({ array, isUnitMetric, timezone }) => {
     tomorrow.setDate(tomorrow.getDate() + index + 1);
     return tomorrow.toLocaleDateString([], { month: 'numeric', day: 'numeric' })
   };
-  
+
+  if (!array) return <></>;
   return array.map((element, index) => {
     if (index === 7) return null;
     return (
