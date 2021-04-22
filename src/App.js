@@ -8,14 +8,23 @@ import WeatherCardSecondary from './components/WeatherCardSecondary';
 import SearchFailed from './components/SearchFailed';
 
 function App() {
+  
   const [userHasNotYetSearched, setUserHasNotYetSearched] = useState(true);
+  
   const [searchFailed, setSearchFailed] = useState(false);
+  
+  // Regulate metric/imperial
   const [metricUnit, setMetricUnit] = useState(true);
+
   const [cityName, setCityName] = useState("");
+
+  // Today's weather
   const [currentWeather, setCurrentWeather] = useState({});
+
+  // Weekly forecast
   const [forecast, setForecast] = useState({});
 
-  // eslint-disable-next-line no-unused-vars
+  // Control background image/color when weather changes
   const [bg, setBg] = useState();
 
   const inputFieldChange = (e) => setCityName(e.target.value);
@@ -30,7 +39,6 @@ function App() {
 
   const unitChange = () => setMetricUnit(!metricUnit);
 
-  // eslint-disable-next-line no-unused-vars
   const updateBg = (weatherStatus) => {
     // eslint-disable-next-line no-unused-vars
     let arrayOfIcons = ["Clear", "Clouds", "Drizzle", "Rain", "Thunderstorm", "Snow", "Mist", "Fog", "Haze"];
