@@ -1,24 +1,29 @@
 {
   "files": {
-    "main.css": "/weather-app/static/css/main.b3c7e443.chunk.css",
-    "main.js": "/weather-app/static/js/main.c6a63443.chunk.js",
-    "main.js.map": "/weather-app/static/js/main.c6a63443.chunk.js.map",
+    "main.css": "/weather-app/static/css/main.5b88083a.chunk.css",
+    "main.js": "/weather-app/static/js/main.faca7229.chunk.js",
+    "main.js.map": "/weather-app/static/js/main.faca7229.chunk.js.map",
     "runtime-main.js": "/weather-app/static/js/runtime-main.ebee7970.js",
     "runtime-main.js.map": "/weather-app/static/js/runtime-main.ebee7970.js.map",
-    "static/js/2.42603fac.chunk.js": "/weather-app/static/js/2.42603fac.chunk.js",
-    "static/js/2.42603fac.chunk.js.map": "/weather-app/static/js/2.42603fac.chunk.js.map",
+    "static/js/2.90ff1453.chunk.js": "/weather-app/static/js/2.90ff1453.chunk.js",
+    "static/js/2.90ff1453.chunk.js.map": "/weather-app/static/js/2.90ff1453.chunk.js.map",
     "index.html": "/weather-app/index.html",
-    "static/css/main.b3c7e443.chunk.css.map": "/weather-app/static/css/main.b3c7e443.chunk.css.map",
-    "static/js/2.42603fac.chunk.js.LICENSE.txt": "/weather-app/static/js/2.42603fac.chunk.js.LICENSE.txt",
+    "static/css/main.5b88083a.chunk.css.map": "/weather-app/static/css/main.5b88083a.chunk.css.map",
+    "static/js/2.90ff1453.chunk.js.LICENSE.txt": "/weather-app/static/js/2.90ff1453.chunk.js.LICENSE.txt",
     "static/media/2-Drizzle.940cb6cf.png": "/weather-app/static/media/2-Drizzle.940cb6cf.png",
     "static/media/4-Thunderstorm.314eda30.png": "/weather-app/static/media/4-Thunderstorm.314eda30.png",
     "static/media/5-Snow.7b438a86.png": "/weather-app/static/media/5-Snow.7b438a86.png",
-    "static/media/open-weather.4595304d.png": "/weather-app/static/media/open-weather.4595304d.png"
+    "static/media/open-weather.4595304d.png": "/weather-app/static/media/open-weather.4595304d.png",
+    "static/media/yosemite-0.b21d9fe0.jpg": "/weather-app/static/media/yosemite-0.b21d9fe0.jpg",
+    "static/media/yosemite-1.92ddf9c8.jpg": "/weather-app/static/media/yosemite-1.92ddf9c8.jpg",
+    "static/media/yosemite-2.6e6ad6a4.jpg": "/weather-app/static/media/yosemite-2.6e6ad6a4.jpg",
+    "static/media/yosemite-3.485b0589.jpg": "/weather-app/static/media/yosemite-3.485b0589.jpg",
+    "static/media/yosemite-4.b6a4b8cf.jpg": "/weather-app/static/media/yosemite-4.b6a4b8cf.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.ebee7970.js",
-    "static/js/2.42603fac.chunk.js",
-    "static/css/main.b3c7e443.chunk.css",
-    "static/js/main.c6a63443.chunk.js"
+    "static/js/2.90ff1453.chunk.js",
+    "static/css/main.5b88083a.chunk.css",
+    "static/js/main.faca7229.chunk.js"
   ]
 }
